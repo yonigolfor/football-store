@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 import { Product } from '../../Products/Models/ProductsModel';
 import { Menu, ShoppingCart, X } from 'lucide-react';
 import logo from '../../assets/images/tiktok-profile.png'
@@ -25,12 +25,12 @@ const HeaderView = ({onShowCheckout, cart, toggleMenuOpen, isMenuOpen}: Props) =
                     />
                 <div className="text-2xl font-bold text-white">Yoni Golfor - El Technique</div>
                 </div>
-                <nav className="hidden md:flex space-x-8">
+                {/* <nav className="hidden md:flex space-x-8">
                     <a href="#" className="text-white hover:text-green-400 transition">בית</a>
                     <a href="#" className="text-white hover:text-green-400 transition">מוצרים</a>
                     <a href="#" className="text-white hover:text-green-400 transition">אודות</a>
                     <a href="#" className="text-white hover:text-green-400 transition">צור קשר</a>
-                </nav>
+                </nav> */}
                 <div className="flex items-center gap-4">
                     <button 
                     onClick={onShowCheckout}
