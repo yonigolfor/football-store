@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import { ShoppingCart, Star, Play, Users, Award, Zap, Target, ArrowRight, Menu, X } from 'lucide-react';
-import { Play } from 'lucide-react';
+// import { Play } from 'lucide-react';
 
 import ProductsSectionView from '../Products/ProductsSectionView';
 // import HeroSectionView from '../components/HeroSection/HeroSectionView';
@@ -23,11 +23,11 @@ const FootballStoreView = () => {
     return value.endsWith('.png')
   }
 
-  useEffect(() => {
+  // useEffect(() => {
     // const handleScroll = () => setScrollY(window.scrollY);
     // window.addEventListener('scroll', handleScroll);
     // return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // }, []);
 
   
 
@@ -231,116 +231,116 @@ const FootballStoreView = () => {
   );
 }
 
-  const AboutSection = () => (
-    <div className="bg-gradient-to-br from-green-900 via-green-800 to-emerald-700 py-20">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/2">
-            <h2 className="text-5xl font-black text-white mb-8">
-              למה אני?
-            </h2>
-            <p className="text-xl text-green-100 mb-6 leading-relaxed">
-              אני שחקן כדורגל מקצועי עם מיליוני צפיות בטיקטוק. אני מלמד ילדים טכניקות מתקדמות ומראה להם איך להגיע לרמה הבאה.
-            </p>
-            <p className="text-lg text-green-200 mb-8">
-              הציוד שאני מוכר כאן זה בדיוק מה שאני משתמש בו באימונים שלי. איכות מעולה, טכנולוgia מתקדמת ותוצאות מוכחות.
-            </p>
+  // const AboutSection = () => (
+  //   <div className="bg-gradient-to-br from-green-900 via-green-800 to-emerald-700 py-20">
+  //     <div className="container mx-auto px-4">
+  //       <div className="flex flex-col lg:flex-row items-center gap-12">
+  //         <div className="lg:w-1/2">
+  //           <h2 className="text-5xl font-black text-white mb-8">
+  //             למה אני?
+  //           </h2>
+  //           <p className="text-xl text-green-100 mb-6 leading-relaxed">
+  //             אני שחקן כדורגל מקצועי עם מיליוני צפיות בטיקטוק. אני מלמד ילדים טכניקות מתקדמות ומראה להם איך להגיע לרמה הבאה.
+  //           </p>
+  //           <p className="text-lg text-green-200 mb-8">
+  //             הציוד שאני מוכר כאן זה בדיוק מה שאני משתמש בו באימונים שלי. איכות מעולה, טכנולוgia מתקדמת ותוצאות מוכחות.
+  //           </p>
             
-            <div className="grid grid-cols-2 gap-6">
-              <div className="text-center">
-                <div className="text-3xl mb-2">🏆</div>
-                <div className="text-white font-bold">ניסיון מוכח</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">💪</div>
-                <div className="text-white font-bold">תוצאות מובטחות</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">🎯</div>
-                <div className="text-white font-bold">דיוק מקסימלי</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">⚡</div>
-                <div className="text-white font-bold">שיפור מהיר</div>
-              </div>
-            </div>
-          </div>
+  //           <div className="grid grid-cols-2 gap-6">
+  //             <div className="text-center">
+  //               <div className="text-3xl mb-2">🏆</div>
+  //               <div className="text-white font-bold">ניסיון מוכח</div>
+  //             </div>
+  //             <div className="text-center">
+  //               <div className="text-3xl mb-2">💪</div>
+  //               <div className="text-white font-bold">תוצאות מובטחות</div>
+  //             </div>
+  //             <div className="text-center">
+  //               <div className="text-3xl mb-2">🎯</div>
+  //               <div className="text-white font-bold">דיוק מקסימלי</div>
+  //             </div>
+  //             <div className="text-center">
+  //               <div className="text-3xl mb-2">⚡</div>
+  //               <div className="text-white font-bold">שיפור מהיר</div>
+  //             </div>
+  //           </div>
+  //         </div>
           
-          <div className="lg:w-1/2">
-            <div className="relative">
-              {/* Video placeholder */}
-              <div className="aspect-video bg-gradient-to-br from-red-500 to-red-700 rounded-3xl flex items-center justify-center text-white text-6xl shadow-2xl">
-                <Play className="w-20 h-20" />
-              </div>
-              <div className="absolute -bottom-4 -right-4 bg-yellow-400 text-black px-4 py-2 rounded-full font-bold animate-bounce">
-                1M+ צפיות!
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  //         <div className="lg:w-1/2">
+  //           <div className="relative">
+  //             {/* Video placeholder */}
+  //             <div className="aspect-video bg-gradient-to-br from-red-500 to-red-700 rounded-3xl flex items-center justify-center text-white text-6xl shadow-2xl">
+  //               <Play className="w-20 h-20" />
+  //             </div>
+  //             <div className="absolute -bottom-4 -right-4 bg-yellow-400 text-black px-4 py-2 rounded-full font-bold animate-bounce">
+  //               1M+ צפיות!
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 
-  const CTASection = () => (
-    <div className="bg-gradient-to-r from-red-600 via-red-500 to-orange-500 py-20 relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-4 h-4 bg-white rounded-full animate-ping opacity-20"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 2}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
+  // const CTASection = () => (
+  //   <div className="bg-gradient-to-r from-red-600 via-red-500 to-orange-500 py-20 relative overflow-hidden">
+  //     {/* Animated background */}
+  //     <div className="absolute inset-0">
+  //       {[...Array(15)].map((_, i) => (
+  //         <div
+  //           key={i}
+  //           className="absolute w-4 h-4 bg-white rounded-full animate-ping opacity-20"
+  //           style={{
+  //             left: `${Math.random() * 100}%`,
+  //             top: `${Math.random() * 100}%`,
+  //             animationDelay: `${Math.random() * 2}s`,
+  //             animationDuration: `${3 + Math.random() * 2}s`
+  //           }}
+  //         />
+  //       ))}
+  //     </div>
       
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <h2 className="text-6xl font-black text-white mb-8">
-          מוכן להתחיל?
-        </h2>
-        <p className="text-2xl text-red-100 mb-12 max-w-3xl mx-auto">
-          הצטרף לאלפי ילדים שכבר משפרים את הכישורים שלהם עם הציוד המתקדם ביותר!
-        </p>
+  //     <div className="container mx-auto px-4 text-center relative z-10">
+  //       <h2 className="text-6xl font-black text-white mb-8">
+  //         מוכן להתחיל?
+  //       </h2>
+  //       <p className="text-2xl text-red-100 mb-12 max-w-3xl mx-auto">
+  //         הצטרף לאלפי ילדים שכבר משפרים את הכישורים שלהם עם הציוד המתקדם ביותר!
+  //       </p>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <button 
-            onClick={() => setShowCheckout(true)}
-            className="px-12 py-6 bg-white text-red-600 font-black rounded-full text-xl hover:scale-110 transform transition-all duration-300 shadow-2xl"
-          >
-            🛒 קנה עכשיו - מבצע מיוחד!
-          </button>
-          <div className="text-white">
-            <div className="text-sm">יש לך שאלות?</div>
-            <div className="font-bold">📞 052-123-4567</div>
-          </div>
-        </div>
+  //       <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+  //         <button 
+  //           onClick={() => setShowCheckout(true)}
+  //           className="px-12 py-6 bg-white text-red-600 font-black rounded-full text-xl hover:scale-110 transform transition-all duration-300 shadow-2xl"
+  //         >
+  //           🛒 קנה עכשיו - מבצע מיוחד!
+  //         </button>
+  //         <div className="text-white">
+  //           <div className="text-sm">יש לך שאלות?</div>
+  //           <div className="font-bold">📞 052-123-4567</div>
+  //         </div>
+  //       </div>
         
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="bg-black bg-opacity-30 p-6 rounded-xl backdrop-blur-sm">
-            <div className="text-3xl mb-2">🚚</div>
-            <div className="text-white font-bold">משלוח חינם</div>
-            <div className="text-red-100 text-sm">לכל הארץ</div>
-          </div>
-          <div className="bg-black bg-opacity-30 p-6 rounded-xl backdrop-blur-sm">
-            <div className="text-3xl mb-2">🔒</div>
-            <div className="text-white font-bold">תשלום מאובטח</div>
-            <div className="text-red-100 text-sm">100% בטוח</div>
-          </div>
-          <div className="bg-black bg-opacity-30 p-6 rounded-xl backdrop-blur-sm">
-            <div className="text-3xl mb-2">↩️</div>
-            <div className="text-white font-bold">החזרה חינם</div>
-            <div className="text-red-100 text-sm">14 ימים</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  //       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+  //         <div className="bg-black bg-opacity-30 p-6 rounded-xl backdrop-blur-sm">
+  //           <div className="text-3xl mb-2">🚚</div>
+  //           <div className="text-white font-bold">משלוח חינם</div>
+  //           <div className="text-red-100 text-sm">לכל הארץ</div>
+  //         </div>
+  //         <div className="bg-black bg-opacity-30 p-6 rounded-xl backdrop-blur-sm">
+  //           <div className="text-3xl mb-2">🔒</div>
+  //           <div className="text-white font-bold">תשלום מאובטח</div>
+  //           <div className="text-red-100 text-sm">100% בטוח</div>
+  //         </div>
+  //         <div className="bg-black bg-opacity-30 p-6 rounded-xl backdrop-blur-sm">
+  //           <div className="text-3xl mb-2">↩️</div>
+  //           <div className="text-white font-bold">החזרה חינם</div>
+  //           <div className="text-red-100 text-sm">14 ימים</div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 
   return (
     <div className="font-sans" dir="rtl">
@@ -372,11 +372,11 @@ const FootballStoreView = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="text-4xl mb-4">⚽</div>
           <p className="text-gray-400 mb-4">העתיד של הכדורגל מתחיל כאן</p>
-          <div className="flex justify-center space-x-6 mb-6">
+          {/* <div className="flex justify-center space-x-6 mb-6">
             <a href="#" className="text-gray-400 hover:text-white transition">TikTok</a>
             <a href="#" className="text-gray-400 hover:text-white transition">Instagram</a>
             <a href="#" className="text-gray-400 hover:text-white transition">YouTube</a>
-          </div>
+          </div> */}
           <p className="text-gray-500 text-sm">© 2025 FootballPro. כל הזכויות שמורות.</p>
         </div>
       </footer>

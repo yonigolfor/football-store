@@ -1,6 +1,6 @@
 import { Product } from './Models/ProductsModel';
 import { ShoppingCart, Zap} from 'lucide-react';
-import logo from '../assets/images/tiktok-profile.png'
+// import logo from '../assets/images/tiktok-profile.png'
 
 type Props = {
     products: Product[];
