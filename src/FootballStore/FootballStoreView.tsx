@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingCart, Star, Play, Users, Award, Zap, Target, ArrowRight, Menu, X } from 'lucide-react';
+// import { ShoppingCart, Star, Play, Users, Award, Zap, Target, ArrowRight, Menu, X } from 'lucide-react';
+import { Play } from 'lucide-react';
+
 import ProductsSectionView from '../Products/ProductsSectionView';
-import HeroSectionView from '../components/HeroSection/HeroSectionView';
+// import HeroSectionView from '../components/HeroSection/HeroSectionView';
 import { Product, products } from '../Products/Models/ProductsModel';
 import OrderCompleteModal from '../modals/OrderCompleteModal';
-import VideoCarouselView from '../components/VideoCarousel/VideoCarouselView';
+// import VideoCarouselView from '../components/VideoCarousel/VideoCarouselView';
 import HeaderView from '../components/Header/HeaderView';
-import MovingVideoCarousel from '../components/VideoCarousel/MovingVideoCarouselView';
+// import MovingVideoCarousel from '../components/VideoCarousel/MovingVideoCarouselView';
 import MovingCarouselView from '../components/VideoCarousel/MovingVideoCarouselView';
 
 const FootballStoreView = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cart, setCart] = useState<Product[]>([]);
-  const [scrollY, setScrollY] = useState(0);
+  // const [scrollY, setScrollY] = useState(0);
   const [showCheckout, setShowCheckout] = useState(false);
   const [showOrderComplete, setShowOrderComplete] = useState(false);
 
@@ -22,9 +24,9 @@ const FootballStoreView = () => {
   }
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // const handleScroll = () => setScrollY(window.scrollY);
+    // window.addEventListener('scroll', handleScroll);
+    // return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   

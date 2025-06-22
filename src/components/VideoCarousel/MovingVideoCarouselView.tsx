@@ -40,7 +40,7 @@ const Card: React.FC<{ label: string; position: 'left' | 'center' | 'right', cen
         width: 240,
         height: 320,
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        opacity: position != "center" ? 0.6 : 1,
+        opacity: position !== "center" ? 0.6 : 1,
         transformStyle: 'preserve-3d',
       }}
       animate={{
@@ -57,7 +57,7 @@ const Card: React.FC<{ label: string; position: 'left' | 'center' | 'right', cen
             src={videoSrc}
             className="w-full h-96 object-cover "
             onEnded={() => {
-              if (onVideoEnd != undefined) {onVideoEnd()}
+              if (onVideoEnd !== undefined) {onVideoEnd()}
               if (centerVideoRef && centerVideoRef.current){
                 const video = centerVideoRef.current
                 video.currentTime = 0
