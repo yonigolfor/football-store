@@ -1,8 +1,7 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Users, Eye, Star, TrendingUp, Zap } from "lucide-react";
 
-export default function HeroSection() {
+export default function HeroSection({ scrollToShop }) {
   return (
     <section className="relative pt-20 pb-20 overflow-hidden">
       {/* Background Elements */}
@@ -64,13 +63,13 @@ export default function HeroSection() {
               transition={{ delay: 0.5 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <a
-                href="#products"
+              <button
+                onClick={scrollToShop}
                 className="px-8 py-4 bg-gradient-to-r from-blue-500 to-green-400 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-green-500 transition-all duration-300 text-center flex items-center justify-center space-x-2"
               >
                 <span>Shop El Technique</span>
                 <Zap className="w-5 h-5" />
-              </a>
+              </button>
               <a
                 href="#about"
                 className="px-8 py-4 border-2 border-slate-600 text-white font-semibold rounded-xl hover:bg-slate-800 transition-all duration-300 text-center"
