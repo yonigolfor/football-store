@@ -4,16 +4,25 @@ import React, { useState } from 'react';
 
 import ProductsSectionView from '../Products/ProductsSectionView';
 // import HeroSectionView from '../components/HeroSection/HeroSectionView';
-import { Product, products } from '../Products/Models/ProductsModel';
+import { CartItem, Product, products } from '../Products/Models/ProductsModel';
 import OrderCompleteModal from '../modals/OrderCompleteModal';
 // import VideoCarouselView from '../components/VideoCarousel/VideoCarouselView';
-import HeaderView from '../components/Header/HeaderView';
+// import HeaderView from '../components/Header/HeaderView';
 // import MovingVideoCarousel from '../components/VideoCarousel/MovingVideoCarouselView';
 import MovingCarouselView from '../components/VideoCarousel/MovingVideoCarouselView';
+import NavBar from '../components/NavBars/NavBar';
+import HeroSection from '../components/HeroSection/HeroSection';
+import FeaturedProducts from '../Products/FeaturedProducts';
+import StatsSection from '../components/statsSection/StatsSection';
+import AboutSection from '../components/about/AboutSection';
+// import ProductsSection from '../Products/ProductsSection';
+// import CartSidebar from "../shop/ShoppingCart";
+
 
 const FootballStoreView = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [cart, setCart] = useState<Product[]>([]);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [cart, setCart] = useState<Product[]>([]);
+  const [cart, setCart] = useState<Record<number, CartItem>>({});
   // const [scrollY, setScrollY] = useState(0);
   const [showCheckout, setShowCheckout] = useState(false);
   const [showOrderComplete, setShowOrderComplete] = useState(false);
@@ -31,18 +40,71 @@ const FootballStoreView = () => {
 
   
 
+  // const addToCart = (product: Product) => {
+    // setCart((prevCart) => [...prevCart, product]);
+  // };
+
   const addToCart = (product: Product) => {
-    setCart((prevCart) => [...prevCart, product]);
-  };
+  setCart(prevCart => {
+    const existingItem = prevCart[product.id];
 
-  const removeFromCart = (index: number) => {
-    const newCart = cart.filter((_, i) => i !== index);
-    setCart(newCart);
-  };
+    return {
+      ...prevCart,
+      [product.id]: {
+        product,
+        quantity: existingItem ? existingItem.quantity + 1 : 1,
+      },
+    };
+  });
+};
 
-  const getTotalPrice = () => {
-    return cart.reduce((total, product) => total + product.price, 0);
-  };
+  const removeFromCart = (productId: number) => {
+  setCart(prevCart => {
+    const item = prevCart[productId];
+    if (!item) return prevCart;
+
+    if (item.quantity > 1) {
+      return {
+        ...prevCart,
+        [productId]: {
+          ...item,
+          quantity: item.quantity - 1,
+        },
+      };
+    } else {
+      const newCart = { ...prevCart };
+      delete newCart[productId];
+      return newCart;
+    }
+  });
+};
+
+const getTotalPrice = () => {
+  return Object.values(cart).reduce(
+    (total, cartItem) => total + cartItem.product.price * cartItem.quantity,
+    0
+  );
+};
+
+ const updateCartQuantity = (productId: number, quantity: number) => {
+  setCart(prev => {
+    if (quantity <= 0) {
+      const { [productId]: _, ...rest } = prev;
+      return rest;
+    }
+
+    return {
+      ...prev,
+      [productId]: {
+        ...prev[productId],
+        quantity,
+      },
+    };
+  });
+};
+
+
+  
 
   const handleOrderSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -79,7 +141,10 @@ const FootballStoreView = () => {
           <div>
             <h3 className="text-xl font-bold text-white mb-4">הסל שלך</h3>
             <div className="space-y-4 mb-6">
-              {cart.map((product, index) => (
+            {Object.values(cart).map((cartItem, index) => {
+              const product = cartItem.product;
+
+              return (
                 <div key={index} className="bg-gray-800 rounded-xl p-4 flex items-center justify-between">
                   <div className="flex items-center gap-4">
                   {stringIsImage(product.image) ? (
@@ -106,7 +171,7 @@ const FootballStoreView = () => {
                     </button>
                   </div>
                 </div>
-              ))}
+              )})}
             </div>
             
             <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-xl p-4">
@@ -343,19 +408,32 @@ const FootballStoreView = () => {
   // );
 
   return (
-    <div className="font-sans" dir="rtl">
-      <HeaderView
+    // dir="rtl"
+    <div className="font-sans" >
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <NavBar cartItems={cart} setIsCartOpen={setShowCheckout} />
+      <HeroSection />
+      {/* <HeaderView
         onShowCheckout={()=>{setShowCheckout(true)}}
         cart={cart}
         isMenuOpen={isMenuOpen}
         toggleMenuOpen={() => {setIsMenuOpen(prev => !prev)}}
-      />
+      /> */}
       {/* <VideoCarouselView /> */}
+      <StatsSection />
+      <FeaturedProducts 
+      products={products.filter(p => p.isTop)}
+      onAddToCart={addToCart}
+      isLoading={false} 
+      />
+      <AboutSection />
+      <ProductsSectionView products={products} addToCart={addToCart}/>
       <MovingCarouselView />
-      <ProductsSectionView 
+
+      {/* <ProductsSectionView 
         products={products} 
         addToCart = {addToCart} 
-      />
+      /> */}
       {/* <AboutSection /> */}
       {/* <CTASection /> */}
       
@@ -380,8 +458,19 @@ const FootballStoreView = () => {
           <p className="text-gray-500 text-sm">© 2025 FootballPro. כל הזכויות שמורות.</p>
         </div>
       </footer>
+      </div>
+      {/* Shopping Cart Sidebar */}
+      {/* <CartSidebar
+        isOpen={showCheckout}
+        onClose={() => setShowCheckout(false)}
+        items={cart}
+        onUpdateQuantity={updateCartQuantity}
+        onRemoveItem={removeFromCart}
+        total={getTotalPrice()}
+      /> */}
     </div>
   );
+  
 };
 
 export default FootballStoreView;

@@ -14,7 +14,8 @@ export const products: Product[] = [
       price: 197,
       image: futivolley_net,
       description: 'ערכת פוצ׳יבולי ניידת למשחק בכל מקום',
-      features: ['ניידת במיוחד – ניתנת לנשיאה לכל מקום', 'מתאימה לים, גינה ופארק', 'כיף חברתי מובטח – לכל גיל ורמה']
+      features: ['ניידת במיוחד – ניתנת לנשיאה לכל מקום', 'מתאימה לים, גינה ופארק', 'כיף חברתי מובטח – לכל גיל ורמה'],
+      isTop: true
     },
     {
       id: 2,
@@ -26,7 +27,8 @@ export const products: Product[] = [
         'מתחברת בקלות לכל שער',
         'מיועדת לשיפור דיוק הבעיטה והקואורדינציה',
         'מתאימה לאימון יחידני או תחרויות עם חברים'
-      ]
+      ],
+      isTop: true
     },
     {
       id: 3,
@@ -37,7 +39,8 @@ export const products: Product[] = [
       features: [
         'מתחבר לגוף ונמתח בהתנגדות משתנה',
         'אידיאלי לשיפור ספרינט, תאוצה ויציאה מהמקום',
-      ]
+      ],
+      isTop: false
     },
     {
       id: 4,
@@ -49,7 +52,8 @@ export const products: Product[] = [
         'עיצוב צבעוני ומודרני',
         'שחרור נקודתי ועוצמתי של שרירים תפוסים ומתוחים',
         'קל לנשיאה – מתאים לבית, חדר כושר או שטח'
-      ]
+      ],
+      isTop: false
     },
     {
       id: 5,
@@ -61,7 +65,8 @@ export const products: Product[] = [
         'עוצמת רטט משתנה – התאמה מושלמת לכל אזור בגוף',
         'עיצוב ארגונומי ונייד – לשימוש קל ונוח',
         'מנוע שקט וחזק – אידיאלי להתאוששות אחרי אימון'
-      ]
+      ],
+      isTop: true
     },
     {
       id: 6,
@@ -73,7 +78,8 @@ export const products: Product[] = [
         'מסך דיגיטלי מובנה – שליטה בלחץ האוויר בזמן אמת',
         'עוצמה שקטה ויעילה – מנפחת תוך שניות',
         'קומפקטית וקלה – נכנסת לכל תיק ספורט'
-      ]
+      ],
+      isTop: false
     },
     {
       id: 7,
@@ -85,7 +91,8 @@ export const products: Product[] = [
         'נפתח ומתקפל תוך שניות – ללא צורך בכלים',
         'קל במיוחד לנשיאה',
         'מתאים לכל גיל – ילדים, נוער ומבוגרים'
-      ]      
+      ],
+      isTop: false
     },
     {
       id: 10,
@@ -93,7 +100,8 @@ export const products: Product[] = [
       price: 149,
       image: '🏮',
       description: 'קונוסים בטכנולוגיה עתידנית עם חיישני LED',
-      features: ['חיישני תנועה', 'תאורת LED', 'עמידים במים']
+      features: ['חיישני תנועה', 'תאורת LED', 'עמידים במים'],
+      isTop: false
     },
     {
       id: 12,
@@ -101,7 +109,8 @@ export const products: Product[] = [
       price: 299,
       image: '⚽',
       description: 'כדור עם חיישנים למדידת מהירות וסיבוב',
-      features: ['מדידת מהירות', 'חיבור לאפליקציה', 'עמידות גבוהה']
+      features: ['מדידת מהירות', 'חיבור לאפליקציה', 'עמידות גבוהה'],
+      isTop: false
     },
     {
       id: 13,
@@ -109,7 +118,8 @@ export const products: Product[] = [
       price: 599,
       image: '👟',
       description: 'נעליים עם טכנולוגיית אחיזה מתקדמת',
-      features: ['חומרים חכמים', 'אחיזה מקסימלית', 'נוחות מרבית']
+      features: ['חומרים חכמים', 'אחיזה מקסימלית', 'נוחות מרבית'],
+      isTop: false
     },
     {
       id: 14,
@@ -117,7 +127,8 @@ export const products: Product[] = [
       price: 399,
       image: '🥅',
       description: 'שער עם רשת חכמה שמודדת דיוק',
-      features: ['מתקפל בקלות', 'רשת חכמה', 'מד דיוק מובנה']
+      features: ['מתקפל בקלות', 'רשת חכמה', 'מד דיוק מובנה'],
+      isTop: false
     },
     {
       id: 15,
@@ -125,7 +136,8 @@ export const products: Product[] = [
       price: 199,
       image: '🕸️',
       description: 'רשת תלת-מימדית לאימון מיומנויות',
-      features: ['עיצוב תלת-מימדי', 'חזקה במיוחד', 'קלה להתקנה']
+      features: ['עיצוב תלת-מימדי', 'חזקה במיוחד', 'קלה להתקנה'],
+      isTop: false
     },
     {
       id: 16,
@@ -133,7 +145,8 @@ export const products: Product[] = [
       price: 449,
       image: '👕',
       description: 'חליפה עם חיישני ביצועים מובנים',
-      features: ['מדידת דופק', 'ווסת טמפרטורה', 'עמידה בזיעה']
+      features: ['מדידת דופק', 'ווסת טמפרטורה', 'עמידה בזיעה'],
+      isTop: false
     },
   ];
 
@@ -144,4 +157,11 @@ export const products: Product[] = [
     image: string;
     description: string;
     features: string[];
+    isTop: boolean;
   };
+
+  export type CartItem = {
+  product: Product;
+  quantity: number;
+};
+

@@ -102,7 +102,7 @@ const MovingCarouselView: React.FC = () => {
   };
 
   return (
-    <div className='h-screen mx-auto p-6 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 rounded-2xl shadow-2xl overflow-hidden'>
+    <div className='h-screen mx-auto p-6  shadow-2xl overflow-hidden'>
       <div className="flex items-center justify-center h-full">
         <Card
           key={videosData[leftIndex].id}
