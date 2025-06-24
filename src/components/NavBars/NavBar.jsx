@@ -1,14 +1,5 @@
 import { 
-  Play, 
-  Users, 
-  Eye, 
-  Star, 
   ShoppingCart, 
-  Instagram,
-  Heart,
-  TrendingUp,
-  Award,
-  Zap
 } from "lucide-react";
 
 export default function NavBar({setIsCartOpen, cartItems}) {

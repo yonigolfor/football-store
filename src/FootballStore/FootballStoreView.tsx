@@ -86,22 +86,22 @@ const getTotalPrice = () => {
   );
 };
 
- const updateCartQuantity = (productId: number, quantity: number) => {
-  setCart(prev => {
-    if (quantity <= 0) {
-      const { [productId]: _, ...rest } = prev;
-      return rest;
-    }
+//  const updateCartQuantity = (productId: number, quantity: number) => {
+//   setCart(prev => {
+//     if (quantity <= 0) {
+//       const { [productId]: _, ...rest } = prev;
+//       return rest;
+//     }
 
-    return {
-      ...prev,
-      [productId]: {
-        ...prev[productId],
-        quantity,
-      },
-    };
-  });
-};
+//     return {
+//       ...prev,
+//       [productId]: {
+//         ...prev[productId],
+//         quantity,
+//       },
+//     };
+//   });
+// };
 
 
   

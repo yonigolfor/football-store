@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Play, Users, Eye, Star, TrendingUp, Zap } from "lucide-react";
+import { Users, Eye, Star, TrendingUp, Zap } from "lucide-react";
 
 export default function HeroSection() {
   return (
