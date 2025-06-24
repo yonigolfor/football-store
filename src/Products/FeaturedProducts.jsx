@@ -4,6 +4,15 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 export default function FeaturedProducts({ products, onAddToCart, isLoading }) {
+  const clickSound = new Audio('/sounds/add-sound2.wav');
+  clickSound.preload = 'auto'; 
+
+  const playPickProductSound = () => {
+    clickSound.play().catch((e) => {
+      console.error("Audio play error", e);
+    })
+  };
+
   if (isLoading) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,8 +122,16 @@ export default function FeaturedProducts({ products, onAddToCart, isLoading }) {
                 </div>
                 
                 <button
-                  onClick={() => onAddToCart(product)}
-                  className="px-6 py-3 bg-gradient-to-r from-blue-500 to-green-400 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-green-500 transition-all duration-300 flex items-center space-x-2 transform hover:scale-105"
+                  onClick={() => {
+                    onAddToCart(product)
+                    if (navigator.vibrate) { // generate light haptic feedback
+                      navigator.vibrate(6)
+                    }
+                    playPickProductSound()
+
+                  }
+                }
+                  className="px-6 py-3 bg-gradient-to-r from-blue-500 to-green-400 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-green-500 transition-all duration-300 flex items-center space-x-2 transform hover:scale-105 active:scale-95"
                 >
                   <ShoppingCart className="w-4 h-4" />
                   <span>Add to Cart</span>
