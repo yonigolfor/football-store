@@ -5,7 +5,7 @@ import { X, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 // import { Input } from "@/components/ui/input";
 // import { Label } from "@/components/ui/label";
 // import { Textarea } from "@/components/ui/textarea";
-import Order  from "../../entities/Order.json";
+// import Order  from "../../entities/Order.json";
 
 export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemoveItem, total }) {
   const [isCheckingOut, setIsCheckingOut] = useState(false);
@@ -40,6 +40,7 @@ export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemov
         total_amount: total,
         shipping_address: customerInfo.address
       };
+      console.log(orderData)
 
       // await Order.create(orderData);
       // Clear cart and show success

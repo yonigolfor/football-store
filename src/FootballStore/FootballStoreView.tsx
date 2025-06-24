@@ -15,7 +15,7 @@ import HeroSection from '../components/HeroSection/HeroSection';
 import FeaturedProducts from '../Products/FeaturedProducts';
 import StatsSection from '../components/statsSection/StatsSection';
 import AboutSection from '../components/about/AboutSection';
-import CheckoutModal from '../modals/CheckoutModal';
+// import CheckoutModal from '../modals/CheckoutModal';
 // import ProductsSection from '../Products/ProductsSection';
 import CartSidebar from "../components/shop/ShoppingCart";
 
@@ -28,7 +28,7 @@ const FootballStoreView = () => {
   const [showCheckout, setShowCheckout] = useState(false);
   const [showOrderComplete, setShowOrderComplete] = useState(false);
   const shopRef = useRef<HTMLDivElement | null>(null);
-  const myStory = useRef(null)
+  // const myStory = useRef(null)
 
 
 
@@ -54,26 +54,7 @@ const FootballStoreView = () => {
   });
 };
 
-  const removeFromCart = (productId: number) => {
-  setCart(prevCart => {
-    const item = prevCart[productId];
-    if (!item) return prevCart;
 
-    if (item.quantity > 1) {
-      return {
-        ...prevCart,
-        [productId]: {
-          ...item,
-          quantity: item.quantity - 1,
-        },
-      };
-    } else {
-      const newCart = { ...prevCart };
-      delete newCart[productId];
-      return newCart;
-    }
-  });
-};
 const onUpdateQuantity = (productId: number, newQuantity: number) => {
   setCart(prevCart => {
     // אם הכמות החדשה 0 או פחות — נמחק את הפריט מהעגלה
@@ -140,13 +121,13 @@ const totalPrice = calculateCartTotal()
 
   
 
-  const handleOrderSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setShowOrderComplete(true);
-    setShowCheckout(false);
-    setCart([]);
-    // כאן תוכל להוסיף שליחה לשרת
-  };
+  // const handleOrderSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setShowOrderComplete(true);
+  //   setShowCheckout(false);
+  //   setCart([]);
+  //   // כאן תוכל להוסיף שליחה לשרת
+  // };
 
 
   return (
