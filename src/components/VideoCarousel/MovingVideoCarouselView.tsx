@@ -24,7 +24,6 @@ const Card: React.FC<{ label: string; position: 'left' | 'center' | 'right', cen
 
   useEffect(() => {
     if (centerVideoRef?.current){
-      console.log("Found center video Ref.")
       centerVideoRef.current.play()
     }
   },[centerVideoRef])
