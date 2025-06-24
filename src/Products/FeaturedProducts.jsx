@@ -125,7 +125,7 @@ export default function FeaturedProducts({ products, onAddToCart, isLoading }) {
                   onClick={() => {
                     onAddToCart(product)
                     if (navigator.vibrate) { // generate light haptic feedback
-                      navigator.vibrate(6)
+                      navigator.vibrate(90)
                     }
                     playPickProductSound()
 

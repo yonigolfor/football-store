@@ -72,7 +72,7 @@ const ProductsSectionView = ({ products, addToCart }: Props) => {
                     onClick={() => {
                       addToCart(product)
                       if (navigator.vibrate) { // generate light haptic feedback
-                      navigator.vibrate(6)
+                      navigator.vibrate(90)
                     }
                     playPickProductSound()
                     }}
