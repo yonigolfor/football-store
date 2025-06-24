@@ -104,7 +104,12 @@ export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemov
                       className="bg-slate-800/50 rounded-lg p-4 border border-slate-700/50"
                     >
                       <div className="flex items-start justify-between mb-3 ">
-                        <img src={item.product.image} className="h-12 w-auto mx-auto" />
+                        <img 
+                        src={item.product.image}
+                        alt={item.product.name}
+                        className="h-12 w-auto mx-auto" 
+                        />
+
                         <div className="flex-1">
                           <h3 className="text-white font-semibold">{item.product.name}</h3>
                           <p className="text-slate-300 text-sm">${item.product.price}</p>

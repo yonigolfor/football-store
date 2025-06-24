@@ -8,10 +8,19 @@ type Props = {
 };
 
 const ProductsSectionView = ({ products, addToCart }: Props) => {
+  const clickSound = new Audio('/sounds/add-sound2.wav');
+  clickSound.preload = 'auto'; 
   
   function stringIsImage(value: string): boolean {
     return value.endsWith('.png')
   }
+
+  const playPickProductSound = () => {
+    clickSound.play().catch((e) => {
+      console.error("Audio play error", e);
+    })
+  };
+
   return (
     <div className="bg-gradient-to-br from-black via-gray-600 to-black py-20">
       <div className="container mx-auto px-4">
@@ -37,7 +46,7 @@ const ProductsSectionView = ({ products, addToCart }: Props) => {
               {stringIsImage(product.image) ? (
                 <img
                 src={product.image}
-                alt="Product"
+                alt={product.name}
                 className="mx-auto h-32 w-auto object-contain"
               />
               ) : (
@@ -60,7 +69,13 @@ const ProductsSectionView = ({ products, addToCart }: Props) => {
                 <div className="flex justify-between items-center">
                   <span className="text-2xl font-bold text-yellow-400">₪{product.price}</span>
                   <button
-                    onClick={() => addToCart(product)}
+                    onClick={() => {
+                      addToCart(product)
+                      if (navigator.vibrate) { // generate light haptic feedback
+                      navigator.vibrate(6)
+                    }
+                    playPickProductSound()
+                    }}
                     // className="bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-full font-bold hover:scale-110 transform transition-all duration-300 flex items-center gap-2"
                     className="px-4 py-2 bg-gradient-to-r from-blue-500 to-green-400 text-white rounded-lg hover:from-blue-600 hover:to-green-500 transition-all duration-200 flex items-center space-x-2"
 
