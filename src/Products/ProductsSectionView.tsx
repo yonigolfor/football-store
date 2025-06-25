@@ -71,13 +71,10 @@ const ProductsSectionView = ({ products, addToCart }: Props) => {
                   <button
                     onClick={() => {
                       addToCart(product)
-                      if (navigator.vibrate) { // generate light haptic feedback
-                      navigator.vibrate(90)
-                    }
-                    playPickProductSound()
+                      playPickProductSound()
                     }}
                     // className="bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-full font-bold hover:scale-110 transform transition-all duration-300 flex items-center gap-2"
-                    className="px-4 py-2 bg-gradient-to-r from-blue-500 to-green-400 text-white rounded-lg hover:from-blue-600 hover:to-green-500 transition-all duration-200 flex items-center space-x-2"
+                    className="px-4 py-2 bg-gradient-to-r from-blue-500 to-green-400 text-white rounded-lg hover:from-blue-600 hover:to-green-500 transition-all duration-200 flex items-center space-x-2 active:scale-95"
 
                   >
                     <ShoppingCart className="w-4 h-4" />

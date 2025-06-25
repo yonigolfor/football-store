@@ -16,7 +16,6 @@ import FeaturedProducts from '../Products/FeaturedProducts';
 import StatsSection from '../components/statsSection/StatsSection';
 import AboutSection from '../components/about/AboutSection';
 // import CheckoutModal from '../modals/CheckoutModal';
-// import ProductsSection from '../Products/ProductsSection';
 import CartSidebar from "../components/shop/ShoppingCart";
 
 
@@ -149,15 +148,14 @@ const totalPrice = calculateCartTotal()
       <AboutSection />
 
       <div ref={shopRef}>
-        <ProductsSectionView products={products} addToCart={addToCart}/>
+        <ProductsSectionView 
+        products={products} 
+        addToCart={addToCart}
+        />
       </div>
 
       <MovingCarouselView />
 
-      {/* <ProductsSectionView 
-        products={products} 
-        addToCart = {addToCart} 
-      /> */}
       {/* <AboutSection /> */}
       {/* <CTASection /> */}
       

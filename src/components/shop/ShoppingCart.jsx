@@ -154,6 +154,11 @@ export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemov
 
             {/* Checkout Form & Total */}
             {Object.values(items).length > 0 && (
+
+                <form
+                onSubmit={(e) => {
+                  handleCheckout()
+                }}>
               <div className="border-t border-slate-700 p-6 space-y-6">
                 <div className="flex items-center justify-between text-xl font-bold">
                   <span className="text-white">Total:</span>
@@ -171,7 +176,7 @@ export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemov
                         value={customerInfo.name}
                         onChange={(e) => setCustomerInfo(prev => ({ ...prev, name: e.target.value }))}
                         placeholder="Your name"
-                        className="bg-slate-800 border-slate-600 text-white"
+                        className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:border-green-400 focus:outline-none transition-all duration-200"
                         required
                       />
                     </div>
@@ -182,7 +187,7 @@ export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemov
                         value={customerInfo.phone}
                         onChange={(e) => setCustomerInfo(prev => ({ ...prev, phone: e.target.value }))}
                         placeholder="Phone number"
-                        className="bg-slate-800 border-slate-600 text-white"
+                        className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:border-green-400 focus:outline-none transition-all duration-200"
                         required
                       />
                     </div>
@@ -196,7 +201,7 @@ export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemov
                       value={customerInfo.email}
                       onChange={(e) => setCustomerInfo(prev => ({ ...prev, email: e.target.value }))}
                       placeholder="your@email.com"
-                      className="bg-slate-800 border-slate-600 text-white"
+                      className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:border-green-400 focus:outline-none transition-all duration-200"
                     />
                   </div>
                   
@@ -210,21 +215,25 @@ export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemov
                         address: { ...prev.address, street: e.target.value }
                       }))}
                       placeholder="Street address, city, state, zip"
-                      className="bg-slate-800 border-slate-600 text-white"
+                      className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:border-green-400 focus:outline-none transition-all duration-200"
                       rows={3}
                       required
                     />
                   </div>
                 </div>
 
+
                 <button
-                  onClick={handleCheckout}
-                  disabled={isCheckingOut || !customerInfo.name || !customerInfo.email}
-                  className="w-full bg-gradient-to-r from-blue-500 to-green-400 hover:from-blue-600 hover:to-green-500 text-white font-semibold py-3"
+                type="submit"
+                  // onClick={handleCheckout}
+                  // disabled={isCheckingOut || !customerInfo.name || !customerInfo.email}
+                  className="w-full bg-gradient-to-r from-blue-500 to-green-400 hover:from-blue-600 hover:to-green-500 text-white font-semibold py-3 active:scale-95 rounded-lg"
                 >
                   {isCheckingOut ? "Processing..." : "Place Order"}
                 </button>
               </div>
+              </form>
+
             )}
           </motion.div>
         </>

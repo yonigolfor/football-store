@@ -124,11 +124,7 @@ export default function FeaturedProducts({ products, onAddToCart, isLoading }) {
                 <button
                   onClick={() => {
                     onAddToCart(product)
-                    if (navigator.vibrate) { // generate light haptic feedback
-                      navigator.vibrate(90)
-                    }
                     playPickProductSound()
-
                   }
                 }
                   className="px-6 py-3 bg-gradient-to-r from-blue-500 to-green-400 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-green-500 transition-all duration-300 flex items-center space-x-2 transform hover:scale-105 active:scale-95"
