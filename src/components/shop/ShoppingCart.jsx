@@ -1,11 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
-// import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
-// import { Textarea } from "@/components/ui/textarea";
-// import Order  from "../../entities/Order.json";
 
 export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemoveItem, total }) {
   const [isCheckingOut, setIsCheckingOut] = useState(false);
