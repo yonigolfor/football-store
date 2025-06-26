@@ -20,25 +20,12 @@ import CartSidebar from "../components/shop/ShoppingCart";
 
 
 const FootballStoreView = () => {
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const [cart, setCart] = useState<Product[]>([]);
   const [cart, setCart] = useState<Record<number, CartItem>>({});
-  // const [scrollY, setScrollY] = useState(0);
   const [showCheckout, setShowCheckout] = useState(false);
   const [showOrderComplete, setShowOrderComplete] = useState(false);
   const shopRef = useRef<HTMLDivElement | null>(null);
   // const myStory = useRef(null)
 
-
-
-  
-
-  // useEffect(() => {
-    // const handleScroll = () => setScrollY(window.scrollY);
-    // window.addEventListener('scroll', handleScroll);
-    // return () => window.removeEventListener('scroll', handleScroll);
-  // }, []);
-  
   const addToCart = (product: Product) => {
   setCart(prevCart => {
     const existingItem = prevCart[product.id];
