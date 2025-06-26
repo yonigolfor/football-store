@@ -71,11 +71,6 @@ const videos = [
         videoRef.current.play().then(() => {
           setIsPlaying(true);
         }).catch(console.error);
-
-        // audioRef.current.play().then(() => {
-        //     console.log("Here")
-        //   setIsMusicPlaying(true);
-        // }).catch(console.error);
       }
     }, 500); // Small delay to ensure elements are loaded
 

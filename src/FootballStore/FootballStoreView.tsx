@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 // import { ShoppingCart, Star, Play, Users, Award, Zap, Target, ArrowRight, Menu, X } from 'lucide-react';
 // import { Play } from 'lucide-react';
 
@@ -29,7 +29,6 @@ const FootballStoreView = () => {
   const addToCart = (product: Product) => {
   setCart(prevCart => {
     const existingItem = prevCart[product.id];
-
     return {
       ...prevCart,
       [product.id]: {
@@ -87,34 +86,6 @@ const calculateCartTotal = (): number => {
 };
 const totalPrice = calculateCartTotal()
 
-//  const updateCartQuantity = (productId: number, quantity: number) => {
-//   setCart(prev => {
-//     if (quantity <= 0) {
-//       const { [productId]: _, ...rest } = prev;
-//       return rest;
-//     }
-
-//     return {
-//       ...prev,
-//       [productId]: {
-//         ...prev[productId],
-//         quantity,
-//       },
-//     };
-//   });
-// };
-
-
-  
-
-  // const handleOrderSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   setShowOrderComplete(true);
-  //   setShowCheckout(false);
-  //   setCart([]);
-  //   // כאן תוכל להוסיף שליחה לשרת
-  // };
-
 
   return (
     // dir="rtl"
@@ -155,13 +126,6 @@ const totalPrice = calculateCartTotal()
       total={totalPrice}
       />}
 
-      {/* {showCheckout && <CheckoutModal
-      setShowCheckout={setShowCheckout} 
-      cart={cart} 
-      removeFromCart={removeFromCart} 
-      handleOrderSubmit={handleOrderSubmit}  
-      />} */}
-
       {showOrderComplete && <OrderCompleteModal
       onCloseCompleteModal={() => {
         setShowOrderComplete(false)
@@ -182,15 +146,6 @@ const totalPrice = calculateCartTotal()
         </div>
       </footer>
       </div>
-      {/* Shopping Cart Sidebar */}
-      {/* <CartSidebar
-        isOpen={showCheckout}
-        onClose={() => setShowCheckout(false)}
-        items={cart}
-        onUpdateQuantity={updateCartQuantity}
-        onRemoveItem={removeFromCart}
-        total={getTotalPrice()}
-      /> */}
     </div>
   );
   

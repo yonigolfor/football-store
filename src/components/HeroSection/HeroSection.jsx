@@ -3,7 +3,7 @@ import { Users, Eye, Star, TrendingUp, Zap } from "lucide-react";
 
 export default function HeroSection({ scrollToShop }) {
   return (
-    <section className="relative pt-16 pb-16 overflow-x-hidden">
+    <section className="relative pt-20 pb-16 overflow-x-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-green-900/20" />
       <div className="absolute top-20 left-10 w-24 h-24 sm:w-32 sm:h-32 bg-blue-500/10 rounded-full blur-3xl" />

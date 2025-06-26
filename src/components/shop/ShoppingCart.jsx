@@ -24,7 +24,6 @@ export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemov
 
   const handleCheckout = async () => {
     if (Object.values(items).length === 0) return;
-    
     setIsCheckingOut(true);
     try {
       const orderData = {
@@ -32,10 +31,10 @@ export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemov
         customer_email: customerInfo.email,
         customer_phone: customerInfo.phone,
         products: Object.values(items).map(item => ({
-          product_id: item.id,
-          product_name: item.name,
+          product_id: item.product.id,
+          product_name: item.product.name,
           quantity: item.quantity,
-          price: item.price
+          price: item.product.price
         })),
         total_amount: total,
         shipping_address: customerInfo.address
