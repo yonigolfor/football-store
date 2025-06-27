@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
+import { EmailManager } from "../../services/managers/EmailManager";
 
-export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemoveItem, total }) {
+export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemoveItem, total, onOrderCompletedSuccesfully }) {
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const [customerInfo, setCustomerInfo] = useState({
     name: "",
@@ -15,6 +16,11 @@ export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemov
       zip_code: "",
       country: ""
     }
+  });
+  const emailManager = new EmailManager({
+    serviceId: 'service_jppkl2k',
+    templateId: 'template_p8ebtvc',
+    publicKey: 'Af3Fw2s7Qnz140Q1s'
   });
 
   const handleCheckout = async () => {
@@ -34,13 +40,18 @@ export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemov
         total_amount: total,
         shipping_address: customerInfo.address
       };
-      console.log(orderData)
-
-      // await Order.create(orderData);
+      const success = await emailManager.sendOrder(orderData)
+      if (success) {
       // Clear cart and show success
-      Object.values(items).forEach(item => onRemoveItem(item.product.id));
-      alert("Order placed successfully! We'll contact you soon.");
-      onClose();
+        Object.values(items).forEach(item => onRemoveItem(item.product.id));
+        // alert("Order placed successfully! We'll contact you soon.");
+        onClose();
+        onOrderCompletedSuccesfully()
+      } else {
+        // show error message
+        alert("ההזמנה נכשלה! נסה שוב מאוחר יותר");
+      }
+      // await Order.create(orderData);
     } catch (error) {
       console.error("Error placing order:", error);
       alert("Error placing order. Please try again.");
@@ -151,6 +162,7 @@ export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemov
 
                 <form
                 onSubmit={(e) => {
+                  e.preventDefault()
                   handleCheckout()
                 }}>
               <div className="border-t border-slate-700 p-6 space-y-6">
@@ -218,12 +230,22 @@ export default function ShoppingCart({ onClose, items, onUpdateQuantity, onRemov
 
 
                 <button
-                type="submit"
-                  // onClick={handleCheckout}
-                  // disabled={isCheckingOut || !customerInfo.name || !customerInfo.email}
-                  className="w-full bg-gradient-to-r from-blue-500 to-green-400 hover:from-blue-600 hover:to-green-500 text-white font-semibold py-3 active:scale-95 rounded-lg"
+                  type="submit"
+                  disabled={isCheckingOut}
+                  className="w-full bg-gradient-to-r from-blue-500 to-green-400 hover:from-blue-600 hover:to-green-500 text-white font-semibold py-3 active:scale-95 rounded-lg "
                 >
-                  {isCheckingOut ? "Processing..." : "Place Order"}
+                  {/* {isCheckingOut ? "Processing..." : "Place Order"} */}
+                  {isCheckingOut ? (
+                    <div className="flex items-center justify-center gap-2">
+                      <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                      </svg>
+                      <span className="hidden sm:inline">שולח הזמנה</span>
+                    </div>
+                  ) : (
+                    "שלח הזמנה"
+                  )}
                 </button>
               </div>
               </form>

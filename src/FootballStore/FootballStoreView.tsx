@@ -1,21 +1,14 @@
 import React, { useState, useRef } from 'react';
-// import { ShoppingCart, Star, Play, Users, Award, Zap, Target, ArrowRight, Menu, X } from 'lucide-react';
-// import { Play } from 'lucide-react';
 
 import ProductsSectionView from '../Products/ProductsSectionView';
-// import HeroSectionView from '../components/HeroSection/HeroSectionView';
 import { CartItem, Product, products } from '../Products/Models/ProductsModel';
 import OrderCompleteModal from '../modals/OrderCompleteModal';
-// import VideoCarouselView from '../components/VideoCarousel/VideoCarouselView';
-// import HeaderView from '../components/Header/HeaderView';
-// import MovingVideoCarousel from '../components/VideoCarousel/MovingVideoCarouselView';
 import MovingCarouselView from '../components/VideoCarousel/MovingVideoCarouselView';
 import NavBar from '../components/NavBars/NavBar';
 import HeroSection from '../components/HeroSection/HeroSection';
 import FeaturedProducts from '../Products/FeaturedProducts';
 import StatsSection from '../components/statsSection/StatsSection';
 import AboutSection from '../components/about/AboutSection';
-// import CheckoutModal from '../modals/CheckoutModal';
 import CartSidebar from "../components/shop/ShoppingCart";
 
 
@@ -119,11 +112,14 @@ const totalPrice = calculateCartTotal()
       
       {/* Modals */}
       {showCheckout && <CartSidebar 
-      onClose={() => {setShowCheckout(false)}}
+      onClose={() => {
+        setShowCheckout(false)
+      }}
       items={cart}
       onUpdateQuantity={onUpdateQuantity}
       onRemoveItem={onRemoveItem}
       total={totalPrice}
+      onOrderCompletedSuccesfully = {() => {setShowOrderComplete(true)}}
       />}
 
       {showOrderComplete && <OrderCompleteModal
