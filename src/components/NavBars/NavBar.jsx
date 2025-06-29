@@ -2,7 +2,7 @@ import {
   ShoppingCart, 
 } from "lucide-react";
 
-export default function NavBar({setIsCartOpen, cartItems}) {
+export default function NavBar({setIsCartOpen, cartItems, scrollTo}) {
 
     const getCartItemCount = () => {
       return Object.values(cartItems).reduce((count, item) => count + item.quantity, 0);
@@ -24,12 +24,16 @@ export default function NavBar({setIsCartOpen, cartItems}) {
             </div>
             
             <div className="flex items-center space-x-6">
-              <a href="#products" className="text-slate-300 hover:text-white transition-colors font-medium">
+              <button 
+              onClick={()=>{scrollTo("Shop")}}
+              className="text-slate-300 hover:text-white transition-colors font-medium">
                 Shop
-              </a>
-              <a href="#about" className="text-slate-300 hover:text-white transition-colors font-medium">
+              </button>
+              <button 
+              onClick={()=>{scrollTo("MyStory")}}
+              className="text-slate-300 hover:text-white transition-colors font-medium">
                 About
-              </a>
+              </button>
               <button
                 onClick={() => setIsCartOpen(true)}
                 className="relative p-2 text-slate-300 hover:text-white transition-colors"

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Users, Eye, Star, TrendingUp, Zap } from "lucide-react";
 
-export default function HeroSection({ scrollToShop }) {
+export default function HeroSection({ scrollTo }) {
   return (
     <section className="relative pt-20 pb-16 overflow-x-hidden">
       {/* Background Elements */}
@@ -64,18 +64,18 @@ export default function HeroSection({ scrollToShop }) {
               className="flex flex-col sm:flex-row gap-4"
             >
               <button
-                onClick={scrollToShop}
+                onClick={() => {scrollTo("Shop")}}
                 className="px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-blue-500 to-green-400 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-green-500 transition-all duration-300 text-center flex items-center justify-center space-x-2"
               >
                 <span>Shop El Technique</span>
                 <Zap className="w-5 h-5" />
               </button>
-              <a
-                href="#about"
+              <button
+                onClick={() => {scrollTo("MyStory")}}
                 className="px-6 py-3 sm:px-8 sm:py-4 border-2 border-slate-600 text-white font-semibold rounded-xl hover:bg-slate-800 transition-all duration-300 text-center"
               >
-                My Story
-              </a>
+                <span>My Story</span>
+              </button>
             </motion.div>
 
             {/* Social Proof */}

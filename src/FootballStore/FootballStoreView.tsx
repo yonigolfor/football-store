@@ -17,7 +17,7 @@ const FootballStoreView = () => {
   const [showCheckout, setShowCheckout] = useState(false);
   const [showOrderComplete, setShowOrderComplete] = useState(false);
   const shopRef = useRef<HTMLDivElement | null>(null);
-  // const myStory = useRef(null)
+  const myStoryRef = useRef<HTMLDivElement | null>(null);
 
   const addToCart = (product: Product) => {
   setCart(prevCart => {
@@ -66,9 +66,21 @@ const onRemoveItem = (productId: number) => {
 
 
 
-const scrollToShop = () => {
-  if (shopRef.current) {
-    shopRef.current.scrollIntoView({ behavior: "smooth" });
+const scrollTo = (section: string) => {
+  switch (section) {
+    case "Shop":
+      if (shopRef.current) {
+        shopRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+      break;
+      case "MyStory":
+      if (myStoryRef.current) {
+        myStoryRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+      break;
+
+    default:
+      break;
   }
 };
 
@@ -84,9 +96,9 @@ const totalPrice = calculateCartTotal()
     // dir="rtl"
     <div className="font-sans" >
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <NavBar cartItems={cart} setIsCartOpen={setShowCheckout} />
+      <NavBar cartItems={cart} setIsCartOpen={setShowCheckout} scrollTo={scrollTo} />
 
-      <HeroSection scrollToShop={scrollToShop} />
+      <HeroSection scrollTo={scrollTo} />
 
       <FeaturedProducts 
       products={products.filter(p => p.isTop)}
@@ -96,7 +108,9 @@ const totalPrice = calculateCartTotal()
 
       <StatsSection />
 
-      <AboutSection />
+      <div ref={myStoryRef}>
+        <AboutSection />
+      </div>
 
       <div ref={shopRef}>
         <ProductsSectionView 
